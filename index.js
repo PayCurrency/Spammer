@@ -102,7 +102,7 @@ app.get("/", async function (req, res) {
         <title>${title}</title>
       </head>
       <body>
-        <h1>${title}</h1>
+        <h1><pre>${title}</pre></h1>
         <p>CURRENTLY RUNNING ON ${config.tokens.length} ACCOUNT(S)!</p>
       </body>
     </html>
