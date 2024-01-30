@@ -94,7 +94,7 @@ if (process.env.REPLIT_DB_URL && (!process.env.TOKENS || !process.env.CONFIG))
   );
 
 app.get("/", async function (req, res) {
-  const title = await createAsciiArt("PAY"); // Set your desired title
+  const title = await createAsciiArt('PAYGANG', 'larry3d');
 
   res.send(`
     <html>
@@ -109,9 +109,9 @@ app.get("/", async function (req, res) {
   `);
 });
 
-function createAsciiArt(text) {
+function createAsciiArt(text, font = 'Standard') {
   return new Promise((resolve, reject) => {
-    figlet(text, (err, data) => {
+    figlet.text(text, { font }, (err, data) => {
       if (err) {
         reject(err);
       } else {
@@ -121,6 +121,7 @@ function createAsciiArt(text) {
   });
 }
 
+module.exports = createAsciiArt;
 app.listen(3000, async () => {
   console.log(chalk.bold.bgRed(`SERVER STATUS: ONLINE`));
 });
