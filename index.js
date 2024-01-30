@@ -93,8 +93,32 @@ if (process.env.REPLIT_DB_URL && (!process.env.TOKENS || !process.env.CONFIG))
   );
 
 app.get("/", async function (req, res) {
-  res.send(`CURRENTLY RUNNING ON ${config.tokens.length} ACCOUNT(S)!`);
+  const title = await createAsciiArt("PayGang"); // Set your desired title
+
+  res.send(`
+    <html>
+      <head>
+        <title>${title}</title>
+      </head>
+      <body>
+        <h1>${title}</h1>
+        <p>CURRENTLY RUNNING ON ${config.tokens.length} ACCOUNT(S)!</p>
+      </body>
+    </html>
+  `);
 });
+
+function createAsciiArt(text) {
+  return new Promise((resolve, reject) => {
+    figlet(text, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+}
 
 app.listen(3000, async () => {
   console.log(chalk.bold.bgRed(`SERVER STATUS: ONLINE`));
