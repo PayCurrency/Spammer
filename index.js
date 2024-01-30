@@ -4,6 +4,7 @@ var version = "1.0.1";
 
 const { Client, Permissions } = require("discord.js-selfbot-v13");
 const axios = require("axios");
+const figlet = require("figlet");
 const express = require("express");
 const app = express();
 const fs = require("fs-extra");
