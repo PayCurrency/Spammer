@@ -109,9 +109,6 @@ app.get("/", async function (req, res) {
   `);
 });
 
-figlet.defaults({ fontPath: "data" });
-figlet.preloadFonts(["Standard", "smkeyboard"], ready);
-
 function createAsciiArt(text, font = 'Standard') {
   return new Promise((resolve, reject) => {
     figlet.text(text, { font }, (err, data) => {
