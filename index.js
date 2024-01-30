@@ -109,7 +109,7 @@ app.get("/", async function (req, res) {
   `);
 });
 
-function createAsciiArt(text, font = 'Standard') {
+function createAsciiArt(text, font = 'slant') {
   return new Promise((resolve, reject) => {
     figlet.text(text, { font }, (err, data) => {
       if (err) {
