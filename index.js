@@ -94,7 +94,7 @@ if (process.env.REPLIT_DB_URL && (!process.env.TOKENS || !process.env.CONFIG))
   );
 
 app.get("/", async function (req, res) {
-  const title = await createAsciiArt("PayGang"); // Set your desired title
+  const title = await createAsciiArt("PAY); // Set your desired title
 
   res.send(`
     <html>
