@@ -94,7 +94,7 @@ if (process.env.REPLIT_DB_URL && (!process.env.TOKENS || !process.env.CONFIG))
   );
 
 app.get("/", async function (req, res) {
-  const title = await createAsciiArt('PAYGANG', 'slant');
+  const title = await createAsciiArt('PAYGANG', 'smkeyboard');
 
   res.send(`
     <html>
@@ -108,6 +108,9 @@ app.get("/", async function (req, res) {
     </html>
   `);
 });
+
+figlet.defaults({ fontPath: "data" });
+figlet.preloadFonts(["Standard", "smkeyboard"], ready);
 
 function createAsciiArt(text, font = 'Standard') {
   return new Promise((resolve, reject) => {
